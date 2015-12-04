@@ -22,3 +22,13 @@ the file in the staging area
 git status # Check the status of all files (committed, new files made, 
 difference between working directory and GitHub repository)
 git log # Lists all commits made so far
+
+What is SHA?
+The SHA is basically a marker for each commit a user made.
+
+Note:
+For certain commands, there are really useful options/flags such as
+for git add. git add . adds all files changed to the staging area
+git commit -am '<message>' adds all files changes and commits them
+with a message
+git revert SHA does what git checkout SHA . does but without the period
