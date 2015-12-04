@@ -32,3 +32,6 @@ for git add. git add . adds all files changed to the staging area
 git commit -am '<message>' adds all files changes and commits them
 with a message
 git revert SHA does what git checkout SHA . does but without the period
+
+There's a flag here:
+ctf_reconz_frustrating
