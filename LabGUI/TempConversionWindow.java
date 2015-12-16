@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.*;//NEW STUFF!
 import java.awt.event.*;
+import java.io.*;
 
 public class TempConversionWindow extends JFrame implements ActionListener{
     private Container pane;
@@ -16,12 +17,12 @@ public class TempConversionWindow extends JFrame implements ActionListener{
 	pane = this.getContentPane();
 	pane.setLayout(new BoxLayout(pane, BoxLayout.Y_AXIS));
 
-	JButton b = new JButton("toC");
+	JButton b = new JButton("Convert to C");
 	b.addActionListener(this);
-	b.setActionCommand("ConvC");
-	JButton b2 = new JButton("toF");
+	b.setActionCommand("ConvertC");
+	JButton b2 = new JButton("Convert to F");
 	b2.addActionListener(this);
-	b2.setActionCommand("ConvF");
+	b2.setActionCommand("ConvertF");
 
 	t = new JTextField(10);
 	j = new JLabel("Temperature");
@@ -35,15 +36,16 @@ public class TempConversionWindow extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent e){
 	String event = e.getActionCommand();
 	String s = t.getText();
-	//double temp = s.parseDouble(s); 
-	if(event.equals("ConvF")){
-	    j.setText(s);
+	double temp; 
+	if(event.equals("ConvertF")){
+	    temp = Double.parseDouble(s);
+	    j.setText(Double.toString(Temperature.CtoF(temp)));
 	}
 
-	if(event.equals("ConvC")){
-	    j.setText(s);
-	}
- 
- 
+	if(event.equals("ConvertC")){
+	    temp = Double.parseDouble(s);
+	    j.setText(Double.toString(Temperature.FtoC(temp)));
+	} 
     }
+
 }
