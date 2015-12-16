@@ -38,13 +38,21 @@ public class TempConversionWindow extends JFrame implements ActionListener{
 	String s = t.getText();
 	double temp; 
 	if(event.equals("ConvertF")){
-	    temp = Double.parseDouble(s);
-	    j.setText(Double.toString(Temperature.CtoF(temp)));
+	    try {
+		temp = Double.parseDouble(s);
+		j.setText(Double.toString(Temperature.CtoF(temp)));
+	    } catch(NumberFormatException m) {
+		j.setText("Not a number!");
+	    }
 	}
 
 	if(event.equals("ConvertC")){
-	    temp = Double.parseDouble(s);
-	    j.setText(Double.toString(Temperature.FtoC(temp)));
+	    try {
+		temp = Double.parseDouble(s);
+		j.setText(Double.toString(Temperature.FtoC(temp)));
+	    } catch(NumberFormatException n) {
+		j.setText("Not a number!");
+	    }
 	} 
     }
 
