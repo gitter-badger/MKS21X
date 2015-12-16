@@ -25,7 +25,8 @@ public class TempConversionWindow extends JFrame implements ActionListener{
 
 	t = new JTextField(10);
 	j = new JLabel("Temperature");
-
+	
+	pane.add(j);
 	pane.add(t);
 	pane.add(b);
 	pane.add(b2);
