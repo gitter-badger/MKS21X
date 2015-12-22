@@ -61,6 +61,7 @@ public class BarCode implements Comparable<Comparable> {
 
 
     public int compareTo(Comparable other) {
+	/*
 	int cmp1 = Integer.parseInt(_zip + Integer.toString(_checkDigit));
 	int cmp2 = Integer.parseInt(((BarCode) other)._zip + Integer.toString(((BarCode) other)._checkDigit));
 	if (cmp1 > cmp2) {
@@ -70,6 +71,8 @@ public class BarCode implements Comparable<Comparable> {
 	} else {
 	    return 0;
 	}
+	*/
+	return toString().compareTo(other.toString());
     }
     // postcondition: compares the zip + checkdigit 
 
