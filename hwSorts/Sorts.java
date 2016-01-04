@@ -12,6 +12,7 @@ public class Sorts {
 	System.out.print("]\n");
     }
 
+    // Insertion Sort
     public static void insertionSort(int[] data) {
 	for (int i = 0; i < data.length - 1; i++) {
 	    if (data[i] > data[i + 1]) {
@@ -30,4 +31,34 @@ public class Sorts {
 	    indexVal--;
 	}
     }
+
+    // Selection Sort
+    public static void selectionSort(int[] data) {
+	int min, ind, tmp;
+	for (int i = 1; i < data.length; i++) {
+	    String combo = findMin(data, i).replace("\n", "");
+	    min = Integer.parseInt(combo.split(":")[0]);
+	    if (data[i - 1] > min) {
+		// swap first index
+		tmp = data[i - 1];
+		data[i - 1] = min;
+		// swap other element
+		ind = Integer.parseInt(combo.split(":")[1]);
+		data[ind] = tmp;
+	    }
+	}
+    }
+
+    private static String findMin(int[] data, int index) {
+	int min = data[index];
+	int minIndex = index;
+	for (int i = index; i < data.length; i++) {
+	    if (min > data[i]) {
+		min = data[i];
+		minIndex = i;
+	    }
+	}
+	return Integer.toString(min) + ":" + Integer.toString(minIndex);
+    }
+
 }
