@@ -1,5 +1,5 @@
 public class Sorts {
-    private static boolean debug = true;
+    private static boolean debug = false;
 
     public static void printArray(int[] data) {
 	System.out.print("[");
@@ -67,6 +67,25 @@ public class Sorts {
 	    }
 	}
 	return Integer.toString(min) + ":" + Integer.toString(minIndex);
+    }
+
+    // Bubble Sort
+    public static void bubbleSort(int[] data) {
+	int counter = data.length;
+	int tmp;
+	while (counter != 0) {
+	    for (int i = 1; i < data.length; i++) {
+		if (data[i - 1] > data[i]) {
+		    tmp = data[i - 1];
+		    data[i - 1] = data[i];
+		    data[i] = tmp;
+		}
+	    }
+	    if (debug) {
+		printArray(data);
+	    }
+	    counter--;
+	}
     }
 
 }
