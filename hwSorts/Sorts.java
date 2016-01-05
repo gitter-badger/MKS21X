@@ -1,4 +1,6 @@
 public class Sorts {
+    private static boolean debug = true;
+
     public static void printArray(int[] data) {
 	System.out.print("[");
 	for (int i = 0; i < data.length - 1; i++) {
@@ -20,6 +22,9 @@ public class Sorts {
 		data[i + 1] = data[i];
 		data[i] = tmp;
 		swapBackward(data, tmp, i);
+	    }
+	    if (debug) {
+		printArray(data);
 	    }
 	}
     }
@@ -45,6 +50,9 @@ public class Sorts {
 		// swap other element
 		ind = Integer.parseInt(combo.split(":")[1]);
 		data[ind] = tmp;
+	    }
+	    if (debug) {
+		printArray(data);
 	    }
 	}
     }
