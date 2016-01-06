@@ -88,4 +88,16 @@ public class Sorts {
 	}
     }
 
+    public static void fillRandom(int[] data) {
+	for (int i = 0; i < data.length; i++) {
+	    data[i] = (int) (Math.random() * 10000);
+	}
+    }
+
+    public static void swap(int[] data, int index, int index2) {
+	int tmp = data[index];
+	data[index] = data[index2];
+	data[index2] = tmp;
+    }
+
 }
