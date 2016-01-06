@@ -1,28 +1,23 @@
 public class Sorts {
-    private static boolean debug = false;
+    private static boolean debug = true;
 
     public static void printArray(int[] data) {
-	System.out.print("[");
+	String arr = "[";
 	for (int i = 0; i < data.length - 1; i++) {
-	    System.out.print(data[i] + ", ");
+	    arr += Integer.toString(data[i]) + ", ";
 	}
-	if (data.length >= 1) {
-	    System.out.print(data[data.length - 1]);
-	} else if (data.length == 1) {
-	    System.out.print(data[0]);
-	}
-	System.out.print("]\n");
+	arr += Integer.toString(data[data.length - 1]);
+	arr += "]";
+	System.out.println(arr);
     }
 
     // Insertion Sort
     public static void insertionSort(int[] data) {
 	for (int i = 0; i < data.length - 1; i++) {
 	    if (data[i] > data[i + 1]) {
-		int tmp = data[i + 1];
-		data[i + 1] = data[i];
-		data[i] = tmp;
-		swapBackward(data, tmp, i);
+		swapBackward(data, data[i + 1], i + 1);
 	    }
+	    // Debug
 	    if (debug) {
 		printArray(data);
 	    }
@@ -51,6 +46,7 @@ public class Sorts {
 		ind = Integer.parseInt(combo.split(":")[1]);
 		data[ind] = tmp;
 	    }
+	    // Debug
 	    if (debug) {
 		printArray(data);
 	    }
@@ -71,26 +67,17 @@ public class Sorts {
 
     // Bubble Sort
     public static void bubbleSort(int[] data) {
-	int counter = data.length;
 	int tmp;
-	while (counter != 0) {
+        for (int counter = data.length; counter >= 0; counter--) {
 	    for (int i = 1; i < data.length; i++) {
 		if (data[i - 1] > data[i]) {
-		    tmp = data[i - 1];
-		    data[i - 1] = data[i];
-		    data[i] = tmp;
+		    swap(data, i, i - 1);
 		}
 	    }
+	    // Debug
 	    if (debug) {
 		printArray(data);
 	    }
-	    counter--;
-	}
-    }
-
-    public static void fillRandom(int[] data) {
-	for (int i = 0; i < data.length; i++) {
-	    data[i] = (int) (Math.random() * 10000);
 	}
     }
 
@@ -100,4 +87,9 @@ public class Sorts {
 	data[index2] = tmp;
     }
 
+    public static void fillRandom(int[] data) {
+	for (int i = 0; i < data.length; i++) {
+	    data[i] = (int) (Math.random() * 10000);
+	}
+    }
 }
