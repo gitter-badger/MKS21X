@@ -1,5 +1,5 @@
 public class Sorts {
-    private static boolean debug = true;
+    private static boolean debug = false;
 
     public static void printArray(int[] data) {
 	String arr = "[";
