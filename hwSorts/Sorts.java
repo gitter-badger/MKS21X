@@ -13,22 +13,18 @@ public class Sorts {
 
     // Insertion Sort
     public static void insertionSort(int[] data) {
-	for (int i = 0; i < data.length - 1; i++) {
-	    if (data[i] > data[i + 1]) {
-		swapBackward(data, data[i + 1], i + 1);
+	for (int i = 1; i < data.length; i++) {
+	    int tmp = data[i];
+	    int slot = i - 1;
+	    while (slot >= 0 && tmp < data[slot]) {
+		data[slot + 1] = data[slot];
+		slot--;
 	    }
+	    data[slot + 1] = tmp;
 	    // Debug
 	    if (debug) {
 		printArray(data);
 	    }
-	}
-    }
-
-    private static void swapBackward(int[] data, int val, int indexVal) {
-	while (indexVal - 1 >= 0 && val < data[indexVal - 1]) {
-	    data[indexVal] = data[indexVal - 1];
-	    data[indexVal - 1] = val;
-	    indexVal--;
 	}
     }
 
@@ -69,7 +65,7 @@ public class Sorts {
     public static void bubbleSort(int[] data) {
 	int tmp;
         for (int counter = data.length; counter >= 0; counter--) {
-	    for (int i = 1; i < data.length; i++) {
+	    for (int i = 1; i < counter; i++) {
 		if (data[i - 1] > data[i]) {
 		    swap(data, i, i - 1);
 		}
